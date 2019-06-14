@@ -26,27 +26,31 @@ class Feeling extends Component {
                         onChange={this.handleChange}
                         value="1"
                         name="feeling"
+                        checked={this.props.reduxState.setFeedback.feeling === "1"}
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="2"
                         name="feeling"
+                        checked={this.props.reduxState.setFeedback.feeling === "2"}
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="3"
                         name="feeling"
-  
+                        checked={this.props.reduxState.setFeedback.feeling === "3"}
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="4"
                         name="feeling"
+                        checked={this.props.reduxState.setFeedback.feeling === "4"}
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="5"
                         name="feeling"
+                        checked={this.props.reduxState.setFeedback.feeling === "5"}
                     />
                 </form>
                 {this.state.isSelected ? 
@@ -59,4 +63,8 @@ class Feeling extends Component {
     }
 }
 
-export default connect()(Feeling)
+const mapReduxStateToProps = (reduxState) => ({
+    reduxState: reduxState,
+})
+
+export default connect(mapReduxStateToProps)(Feeling)

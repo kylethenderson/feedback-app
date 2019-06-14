@@ -6,12 +6,18 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux'
 import { createStore, combineReducers} from 'redux'
 
-const setFeedback = (state = {}, action) => {
+const emptyFeedback = {
+    feeling: '',
+    support: '',
+    understanding: '',
+    comments: '',
+}
+const setFeedback = (state = emptyFeedback, action) => {
     if ( action.type === 'SET_FEEDBACK') {
         console.log(`inside set feedback`, action.payload);
         return {...state, ...action.payload}
     } else if ( action.type === 'CLEAR_FEEDBACK') {
-        return {}
+        return emptyFeedback
     }
     return state
 }
