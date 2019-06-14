@@ -26,36 +26,36 @@ class Understanding extends Component {
                         onChange={this.handleChange}
                         value="1"
                         name="understanding"
-                        checked={this.props.reduxState.setFeedback.support === "1"}
+                        checked={this.props.reduxState.understanding === "1"}
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="2"
                         name="understanding"
-                        checked={this.props.reduxState.setFeedback.support === "2"}
+                        checked={this.props.reduxState.understanding === "2"}
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="3"
                         name="understanding"
-                        checked={this.props.reduxState.setFeedback.support === "3"}
+                        checked={this.props.reduxState.understanding === "3"}
   
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="4"
                         name="understanding"
-                        checked={this.props.reduxState.setFeedback.support === "4"}
+                        checked={this.props.reduxState.understanding === "4"}
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="5"
                         name="understanding"
-                        checked={this.props.reduxState.setFeedback.support === "5"}
+                        checked={this.props.reduxState.understanding === "5"}
                     />
                 </div>
                 <button onClick={()=> {this.props.history.push('/support')}}>Back</button>
-                {this.state.isSelected ? 
+                {this.props.reduxState.understanding !== '' ? 
                 <button onClick={()=> {this.props.history.push('/comments')}}>Next</button>
                 :
                 <button disabled onClick={()=> {this.props.history.push('/comments')}}>Next</button>
@@ -66,7 +66,7 @@ class Understanding extends Component {
 }
 
 const mapReduxStateToProps = (reduxState) => ({
-    reduxState: reduxState,
+    reduxState: reduxState.setFeedback,
 })
 
 export default connect(mapReduxStateToProps)(Understanding)

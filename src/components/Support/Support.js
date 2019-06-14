@@ -25,36 +25,36 @@ class Support extends Component {
                         onChange={this.handleChange}
                         value="1"
                         name="support"
-                        checked={this.props.reduxState.setFeedback.support === "1"}
+                        checked={this.props.reduxState.support === "1"}
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="2"
                         name="support"
-                        checked={this.props.reduxState.setFeedback.support === "2"}
+                        checked={this.props.reduxState.support === "2"}
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="3"
                         name="support"
-                        checked={this.props.reduxState.setFeedback.support === "3"}
+                        checked={this.props.reduxState.support === "3"}
 
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="4"
                         name="support"
-                        checked={this.props.reduxState.setFeedback.support === "4"}
+                        checked={this.props.reduxState.support === "4"}
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="5"
                         name="support"
-                        checked={this.props.reduxState.setFeedback.support === "5"}
+                        checked={this.props.reduxState.support === "5"}
                     />
                 </div>
                 <button onClick={() => { this.props.history.push('/feeling') }}>Back</button>
-                {this.state.isSelected ?
+                {this.props.reduxState.support !== '' ?
                     <button onClick={() => { this.props.history.push('/understanding') }}>Next</button>
                     :
                     <button disabled onClick={() => { this.props.history.push('/understanding') }}>Next</button>
@@ -66,7 +66,7 @@ class Support extends Component {
 }
 
 const mapReduxStateToProps = (reduxState) => ({
-    reduxState: reduxState,
+    reduxState: reduxState.setFeedback,
 })
 
 export default connect(mapReduxStateToProps)(Support)

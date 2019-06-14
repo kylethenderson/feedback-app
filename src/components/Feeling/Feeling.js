@@ -3,10 +3,6 @@ import { connect } from 'react-redux'
 
 class Feeling extends Component {
 
-    state = {
-        isSelected: false,
-    }
-
     handleChange = (event) => {
         this.props.dispatch({
             type: 'SET_FEEDBACK',
@@ -26,34 +22,34 @@ class Feeling extends Component {
                         onChange={this.handleChange}
                         value="1"
                         name="feeling"
-                        checked={this.props.reduxState.setFeedback.feeling === "1"}
+                        checked={this.props.reduxState.feeling === "1"}
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="2"
                         name="feeling"
-                        checked={this.props.reduxState.setFeedback.feeling === "2"}
+                        checked={this.props.reduxState.feeling === "2"}
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="3"
                         name="feeling"
-                        checked={this.props.reduxState.setFeedback.feeling === "3"}
+                        checked={this.props.reduxState.feeling === "3"}
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="4"
                         name="feeling"
-                        checked={this.props.reduxState.setFeedback.feeling === "4"}
+                        checked={this.props.reduxState.feeling === "4"}
                     />
                     <input type="radio"
                         onChange={this.handleChange}
                         value="5"
                         name="feeling"
-                        checked={this.props.reduxState.setFeedback.feeling === "5"}
+                        checked={this.props.reduxState.feeling === "5"}
                     />
                 </form>
-                {this.state.isSelected ? 
+                {this.props.reduxState.feeling !== '' ? 
                 <button onClick={()=> {this.props.history.push('/support')}}>Next</button>
                 :
                 <button disabled onClick={()=> {this.props.history.push('/support')}}>Next</button>
@@ -64,7 +60,7 @@ class Feeling extends Component {
 }
 
 const mapReduxStateToProps = (reduxState) => ({
-    reduxState: reduxState,
+    reduxState: reduxState.setFeedback,
 })
 
 export default connect(mapReduxStateToProps)(Feeling)
