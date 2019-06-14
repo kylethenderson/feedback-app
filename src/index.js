@@ -10,6 +10,8 @@ const setFeedback = (state = {}, action) => {
     if ( action.type === 'SET_FEEDBACK') {
         console.log(`inside set feedback`, action.payload);
         return {...state, ...action.payload}
+    } else if ( action.type === 'CLEAR_FEEDBACK') {
+        return {}
     }
     return state
 }
