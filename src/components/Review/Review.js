@@ -8,7 +8,7 @@ class Comments extends Component {
         this.props.dispatch({
             type: 'CLEAR_FEEDBACK',
         })
-        this.props.history.push("/");
+        this.props.history.push("/success");
     }
     render() {
         return (
