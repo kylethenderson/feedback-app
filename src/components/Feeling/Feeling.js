@@ -3,16 +3,24 @@ import { connect } from 'react-redux'
 
 class Feeling extends Component {
 
+    state = {
+        isSelected: false,
+    }
+
     handleChange = (event) => {
         this.props.dispatch({
             type: 'SET_FEEDBACK',
             payload: {feeling: event.target.value}
         })
+        this.setState({
+            isSelected: true,
+        })
     }
     render() {
+
         return (
             <>
-                <div>
+                <form>
                     <h3>How are you feeling today?</h3>
                     <input type="radio"
                         onChange={this.handleChange}
@@ -40,8 +48,12 @@ class Feeling extends Component {
                         value="5"
                         name="feeling"
                     />
-                </div>
+                </form>
+                {this.state.isSelected ? 
                 <button onClick={()=> {this.props.history.push('/support')}}>Next</button>
+                :
+                <button disabled onClick={()=> {this.props.history.push('/support')}}>Next</button>
+                }
             </>
         )
     }

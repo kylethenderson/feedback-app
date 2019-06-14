@@ -3,12 +3,20 @@ import { connect } from 'react-redux'
 
 class Understanding extends Component {
 
+    state = {
+        isSelected: false,
+    }
+
     handleChange = (event) => {
         this.props.dispatch({
             type: 'SET_FEEDBACK',
             payload: {understanding: event.target.value}
         })
+        this.setState({
+            isSelected: true,
+        })
     }
+
     render() {
         return (
             <>
@@ -41,7 +49,11 @@ class Understanding extends Component {
                         name="understanding"
                     />
                 </div>
+                {this.state.isSelected ? 
                 <button onClick={()=> {this.props.history.push('/comments')}}>Next</button>
+                :
+                <button disabled onClick={()=> {this.props.history.push('/comments')}}>Next</button>
+                }
             </>
         )
     }
