@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux'
 import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom'
 import Home from '../Home/Home'
@@ -17,6 +17,7 @@ class App extends Component {
             <h1 className="App-title">Feedback!</h1>
             <h4><i>Don't forget it!</i></h4>
           </header>
+          {JSON.stringify(this.props, null, 2)}
           <Route exact path="/" component={Home} />
           <Route exact path="/feeling" component={Feeling} />
           <Route exact path="/understanding" component={Understanding} />
@@ -29,4 +30,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapReduxStateToProps = (reduxState) => ({
+  reduxState: reduxState,
+})
+
+export default connect(mapReduxStateToProps)(App);

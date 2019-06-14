@@ -6,13 +6,17 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux'
 import { createStore, combineReducers} from 'redux'
 
-const stockReducer = (state = [], action) => {
+const setFeedback = (state = {}, action) => {
+    if ( action.type === 'SET_FEEDBACK') {
+        console.log(`inside set feedback`, action.payload);
+        return {...state, ...action.payload}
+    }
     return state
 }
 
 const storeInstance = createStore(
     combineReducers({
-        stockReducer,
+        setFeedback,
     }),
 )
 
