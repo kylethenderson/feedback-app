@@ -2,11 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class Support extends Component {
-
-    state = {
-        isSelected: false,
-    }
-
+    
     handleChange = (event) => {
         this.props.dispatch({
             type: 'SET_FEEDBACK',

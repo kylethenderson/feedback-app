@@ -3,10 +3,6 @@ import { connect } from 'react-redux'
 
 class Understanding extends Component {
 
-    state = {
-        isSelected: false,
-    }
-
     handleChange = (event) => {
         this.props.dispatch({
             type: 'SET_FEEDBACK',
