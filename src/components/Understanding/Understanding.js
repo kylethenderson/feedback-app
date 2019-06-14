@@ -8,9 +8,6 @@ class Understanding extends Component {
             type: 'SET_FEEDBACK',
             payload: {understanding: event.target.value}
         })
-        this.setState({
-            isSelected: true,
-        })
     }
 
     render() {
@@ -50,11 +47,11 @@ class Understanding extends Component {
                         checked={this.props.reduxState.understanding === "5"}
                     />
                 </div>
-                <button onClick={()=> {this.props.history.push('/support')}}>Back</button>
+                <button onClick={()=> {this.props.history.push('/feeling')}}>Back</button>
                 {this.props.reduxState.understanding !== '' ? 
-                <button onClick={()=> {this.props.history.push('/comments')}}>Next</button>
+                <button onClick={()=> {this.props.history.push('/support')}}>Next</button>
                 :
-                <button disabled onClick={()=> {this.props.history.push('/comments')}}>Next</button>
+                <button disabled onClick={()=> {this.props.history.push('/support')}}>Next</button>
                 }
             </>
         )

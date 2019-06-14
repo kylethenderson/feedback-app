@@ -1,24 +1,34 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import axios from 'axios'
 
 class Comments extends Component {
 
     handleSubmit = () => {
-        // post review to db
-        this.props.dispatch({
-            type: 'CLEAR_FEEDBACK',
+        // post review to server
+        axios({
+            method: 'POST',
+            url: '/feedback',
+            data: this.props.reduxState
+        }).then( response => {
+            console.log(response);
+            this.props.dispatch({
+                type: 'CLEAR_FEEDBACK',
+            })
+            this.props.history.push("/success");
+        }).catch( error => {
+            console.log(error);
         })
-        this.props.history.push("/success");
     }
     render() {
         return (
             <>
                 <div>
                     <h3>Feedback Review</h3>
-                    <p>Feelings: {this.props.reduxState.setFeedback.feeling}</p>
-                    <p>Support: {this.props.reduxState.setFeedback.support}</p>
-                    <p>Understanding: {this.props.reduxState.setFeedback.understanding}</p>
-                    <p>Comments: {this.props.reduxState.setFeedback.comments}</p>
+                    <p>Feelings: {this.props.reduxState.feeling}</p>
+                    <p>Support: {this.props.reduxState.support}</p>
+                    <p>Understanding: {this.props.reduxState.understanding}</p>
+                    <p>Comments: {this.props.reduxState.comments}</p>
                 </div>
                 <button onClick={this.handleSubmit}>Submit Feedback</button>
             </>
@@ -27,7 +37,7 @@ class Comments extends Component {
 }
 
 const mapReduxStateToProps = (reduxState) => ({
-    reduxState: reduxState,
+    reduxState: reduxState.setFeedback,
 })
 
 export default connect(mapReduxStateToProps)(Comments)

@@ -2,14 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class Support extends Component {
-    
+
     handleChange = (event) => {
         this.props.dispatch({
             type: 'SET_FEEDBACK',
             payload: { support: event.target.value }
-        })
-        this.setState({
-            isSelected: true,
         })
     }
     render() {
@@ -49,11 +46,11 @@ class Support extends Component {
                         checked={this.props.reduxState.support === "5"}
                     />
                 </div>
-                <button onClick={() => { this.props.history.push('/feeling') }}>Back</button>
+                <button onClick={() => { this.props.history.push('/understanding') }}>Back</button>
                 {this.props.reduxState.support !== '' ?
-                    <button onClick={() => { this.props.history.push('/understanding') }}>Next</button>
+                    <button onClick={() => { this.props.history.push('/comments') }}>Next</button>
                     :
-                    <button disabled onClick={() => { this.props.history.push('/understanding') }}>Next</button>
+                    <button disabled onClick={() => { this.props.history.push('/comments') }}>Next</button>
                 }
 
             </>

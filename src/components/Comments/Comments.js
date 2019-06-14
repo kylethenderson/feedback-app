@@ -16,7 +16,7 @@ class Comments extends Component {
                     <h3>Any Additional Comments?</h3>
                     <textarea onChange={this.handleChange} rows="4" cols="50" />
                 </div>
-                <button onClick={()=> {this.props.history.push('/understanding')}}>Back</button>
+                <button onClick={()=> {this.props.history.push('/support')}}>Back</button>
                 <button onClick={()=> {this.props.history.push('/review')}}>Review Feedback</button>
             </>
         )

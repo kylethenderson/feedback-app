@@ -8,9 +8,6 @@ class Feeling extends Component {
             type: 'SET_FEEDBACK',
             payload: {feeling: event.target.value}
         })
-        this.setState({
-            isSelected: true,
-        })
     }
     render() {
 
@@ -50,9 +47,9 @@ class Feeling extends Component {
                     />
                 </form>
                 {this.props.reduxState.feeling !== '' ? 
-                <button onClick={()=> {this.props.history.push('/support')}}>Next</button>
+                <button onClick={()=> {this.props.history.push('/understanding')}}>Next</button>
                 :
-                <button disabled onClick={()=> {this.props.history.push('/support')}}>Next</button>
+                <button disabled onClick={()=> {this.props.history.push('/understanding')}}>Next</button>
                 }
             </>
         )

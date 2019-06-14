@@ -14,6 +14,7 @@ import Success from '../Success/Success'
 class App extends Component {
   render() {
     return (
+      <>
       <Router>
         <div className="App">
           <Route path="/" component={Header} />
@@ -28,6 +29,14 @@ class App extends Component {
           <br />
         </div>
       </Router>
+      <div>
+        <h3>Feedback Review</h3>
+        <p>Feelings: {this.props.reduxState.setFeedback.feeling}</p>
+        <p>Support: {this.props.reduxState.setFeedback.support}</p>
+        <p>Understanding: {this.props.reduxState.setFeedback.understanding}</p>
+        <p>Comments: {this.props.reduxState.setFeedback.comments}</p>
+      </div>
+      </>
     );
   }
 }
