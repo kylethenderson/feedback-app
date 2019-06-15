@@ -5,6 +5,7 @@ class Admin extends Component {
     render () {
         return (
             <>
+            {JSON.stringify(this.props.reduxState, null, 2)}
             </>
         )
     }
