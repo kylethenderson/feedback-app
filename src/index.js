@@ -22,9 +22,18 @@ const setFeedback = (state = emptyFeedback, action) => {
     return state
 }
 
+const getFeedback = (state = [], action) => {
+    if ( action.type === 'GET_FEEDBACK') {
+        console.log(`inside get feedback`, action.payload);
+        return action.payload
+    } 
+    return state
+}
+
 const storeInstance = createStore(
     combineReducers({
         setFeedback,
+        getFeedback,
     }),
 )
 

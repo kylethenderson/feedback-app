@@ -11,6 +11,16 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 
+app.get('/feedback', (req, res) => {
+    pool.query(`SELECT * FROM "feedback" ORDER BY "id";`)
+        .then(result => {
+            res.send(result.rows);
+        })
+        .catch( error => {
+            console.log(error);
+        })
+})
+
 app.post('/feedback', (req, res) => {
     pool.query(`INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
     VALUES ($1, $2, $3, $4);`, [req.body.feeling, req.body.understanding, req.body.support, req.body.comments])

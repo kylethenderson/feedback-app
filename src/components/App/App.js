@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom'
+import Card from '@material-ui/core/Card'
+import Grid from '@material-ui/core/Grid'
+
+// Components
 import Header from '../Header/Header'
 import Home from '../Home/Home'
 import Feeling from '../Feeling/Feeling'
@@ -10,9 +14,8 @@ import Support from '../Support/Support'
 import Comments from '../Comments/Comments'
 import Review from '../Review/Review'
 import Success from '../Success/Success'
+import Admin from '../Admin/Admin'
 import Footer from '../Footer/Footer'
-import Card from '@material-ui/core/Card'
-import Grid from '@material-ui/core/Grid'
 
 class App extends Component {
   render() {
@@ -32,6 +35,7 @@ class App extends Component {
                   <Route exact path="/comments" component={Comments} />
                   <Route exact path="/review" component={Review} />
                   <Route exact path="/success" component={Success} />
+                  <Route exact path="/admin" component={Admin} />
                 </Card>
               </Grid>
             </Grid>
