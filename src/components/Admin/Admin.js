@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 
+//Components
+import AdminTableItem from './AdminTableItem'
+
 class Admin extends Component {
 
     componentDidMount() {
@@ -40,7 +43,7 @@ class Admin extends Component {
                     </tr>
                 </thead>
                 <tbody>
-
+                    {this.props.reduxState.map(item => <AdminTableItem item={item}/>)}
                 </tbody>
                 <tfoot>
                     <tr>
