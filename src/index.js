@@ -8,8 +8,8 @@ import { createStore, combineReducers} from 'redux'
 
 const emptyFeedback = {
     feeling: '',
-    support: '',
     understanding: '',
+    support: '',
     comments: '',
 }
 const setFeedback = (state = emptyFeedback, action) => {

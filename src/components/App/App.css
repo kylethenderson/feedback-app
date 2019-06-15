@@ -16,4 +16,9 @@
 .App-intro {
   font-size: large;
 }
+#mainCard {
+  display: inline-block;
+  width: 50%;
+  margin: 50px 0px;
+}
 
