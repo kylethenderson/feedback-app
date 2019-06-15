@@ -43,7 +43,7 @@ class Admin extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.reduxState.map(item => <AdminTableItem item={item}/>)}
+                    {this.props.reduxState.map(item => <AdminTableItem key={item.id} item={item}/>)}
                 </tbody>
                 <tfoot>
                     <tr>

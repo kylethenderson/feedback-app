@@ -1,6 +1,16 @@
 import React, { Component } from 'react'
 
 class AdminTableItem extends Component {
+
+    toggleFlagged = () => {
+        console.log('toggle clicked');
+        // put request to toggle flagged field
+    }
+
+    deleteReview = () => {
+        console.log('delete clicked');
+        // delete request to server 
+    }
     render() {
         return(
             <>
@@ -10,8 +20,11 @@ class AdminTableItem extends Component {
                 <td>{this.props.item.understanding}</td>
                 <td>{this.props.item.support}</td>
                 <td>{this.props.item.comments}</td>
-                <td> {/* Flag for needs review */}</td>
-                <td><button>Delete</button></td>
+                <td>{this.props.item.flagged ?
+                    <button onClick={this.toggleFlagged}>Yes</button>
+                    :
+                    <button onClick={this.toggleFlagged}>No</button>}</td>
+                <td><button onClick={this.deleteReview}>Delete</button></td>
             </tr>
             </>
         )

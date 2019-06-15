@@ -10,7 +10,7 @@ const emptyFeedback = {
     feeling: '',
     understanding: '',
     support: '',
-    comments: '',
+    comments: 'None',
 }
 const setFeedback = (state = emptyFeedback, action) => {
     if ( action.type === 'SET_FEEDBACK') {
