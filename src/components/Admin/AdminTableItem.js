@@ -44,10 +44,10 @@ class AdminTableItem extends Component {
                 <TableCell>{this.props.item.understanding}</TableCell>
                 <TableCell>{this.props.item.support}</TableCell>
                 <TableCell>{this.props.item.comments}</TableCell>
-                <TableCell align="center">{this.props.item.flagged ?
-                    <Button variant="contained" size="small" onClick={this.toggleFlagged}>Yes</Button>
+                <TableCell>{this.props.item.flagged ?
+                    <Button color="secondary" variant="contained" size="small" onClick={this.toggleFlagged}>Yes</Button>
                     :
-                    <Button variant="contained" size="small" onClick={this.toggleFlagged}>No</Button>}
+                    <Button color="default" variant="contained" size="small" onClick={this.toggleFlagged}>No</Button>}
                 </TableCell>
                 <TableCell>
                     <IconButton onClick={this.deleteReview} aria-label="Delete">

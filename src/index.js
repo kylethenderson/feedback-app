@@ -14,7 +14,6 @@ const emptyFeedback = {
 }
 const setFeedback = (state = emptyFeedback, action) => {
     if ( action.type === 'SET_FEEDBACK') {
-        console.log(`inside set feedback`, action.payload);
         return {...state, ...action.payload}
     } else if ( action.type === 'CLEAR_FEEDBACK') {
         return emptyFeedback
@@ -23,7 +22,10 @@ const setFeedback = (state = emptyFeedback, action) => {
 }
 
 const getFeedback = (state = [], action) => {
-    if ( action.type === 'GET_FEEDBACK') {
+    if ( action.type === 'CLEAR_FEEDBACK' ) {
+        return [];
+    }
+    else if ( action.type === 'GET_FEEDBACK') {
         console.log(`inside get feedback`, action.payload);
         return [...state, action.payload]
     } 

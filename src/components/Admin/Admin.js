@@ -23,6 +23,9 @@ class Admin extends Component {
             method: 'GET',
             url: '/feedback'
         }).then(response => {
+            this.props.dispatch({
+                type: 'CLEAR_FEEDBACK',
+            })
             for ( let singleFeedback of response.data ) {
                 const formattedDate = this.formatDate(singleFeedback.date);
                 this.props.dispatch({
