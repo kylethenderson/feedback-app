@@ -33,6 +33,29 @@ app.post('/feedback', (req, res) => {
         });
 })
 
+app.put('/feedback', (req, res) => {
+    console.log(req.body.flagged, req.body.id);
+    pool.query(`UPDATE "feedback" SET "flagged" = $1
+    WHERE "id" = $2;`, [!req.body.flagged, req.body.id])
+        .then( result => {
+            res.sendStatus(200)
+        })
+        .catch( error => {
+            console.log(error);
+            res.sendState(500);
+        })
+})
+
+app.delete('/feedback/:id', (req, res) => {
+    pool.query(`DELETE FROM "feedback" WHERE "id" = $1;`, [req.params.id])
+        .then( result => {
+            res.sendStatus(200);
+        }).catch( error => {
+            console.log(error);
+            res.sendStatus(500);
+        });
+})
+
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
     console.log('Listening on port: ', PORT);

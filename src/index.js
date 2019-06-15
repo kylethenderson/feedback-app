@@ -10,7 +10,7 @@ const emptyFeedback = {
     feeling: '',
     understanding: '',
     support: '',
-    comments: 'None',
+    comments: '',
 }
 const setFeedback = (state = emptyFeedback, action) => {
     if ( action.type === 'SET_FEEDBACK') {
@@ -25,7 +25,7 @@ const setFeedback = (state = emptyFeedback, action) => {
 const getFeedback = (state = [], action) => {
     if ( action.type === 'GET_FEEDBACK') {
         console.log(`inside get feedback`, action.payload);
-        return action.payload
+        return [...state, action.payload]
     } 
     return state
 }
