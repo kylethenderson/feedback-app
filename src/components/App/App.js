@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom'
-import Card from '@material-ui/core/Card'
 import Grid from '@material-ui/core/Grid'
 
 // Components
@@ -27,7 +26,6 @@ class App extends Component {
             {/* {JSON.stringify(this.props, null, 2)} */}
             <Grid container alignItems="center" justify="center">
               <Grid item xs={6}>
-                <Card id="mainCard" elevation={3}>
                   <Route exact path="/" component={Home} />
                   <Route exact path="/feeling" component={Feeling} />
                   <Route exact path="/understanding" component={Understanding} />
@@ -35,8 +33,9 @@ class App extends Component {
                   <Route exact path="/comments" component={Comments} />
                   <Route exact path="/review" component={Review} />
                   <Route exact path="/success" component={Success} />
-                  <Route exact path="/admin" component={Admin} />
-                </Card>
+              </Grid>
+              <Grid item xs={10}>
+                <Route exact path="/admin" component={Admin} />
               </Grid>
             </Grid>
             <br />

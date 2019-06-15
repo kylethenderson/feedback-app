@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Grid from '@material-ui/core/Grid'
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -17,50 +18,51 @@ class Feeling extends Component {
         })
     }
 
-    
+
     render() {
 
         return (
-            <CardContent>
-                <Grid container justify="center">
-                <h3>How are you feeling today?</h3>
-                    <FormControl component="fieldset">
-                        <RadioGroup aria-label="position" name="feeling" value="feeling" onChange={this.handleChange} row className="radioGroup">
-                            <FormControlLabel
-                                value="1"
-                                control={<Radio color="primary" checked={this.props.reduxState.feeling === "1"}/>}
-                                label="1"
-                                labelPlacement="bottom"
-                            />
-                            <FormControlLabel
-                                value="2"
-                                control={<Radio color="primary" checked={this.props.reduxState.feeling === "2"}/>}
-                                label="2"
-                                labelPlacement="bottom"
-                            />
-                            <FormControlLabel
-                                value="3"
-                                control={<Radio color="primary" checked={this.props.reduxState.feeling === "3"}/>}
-                                label="3"
-                                labelPlacement="bottom"
-                            />
-                            <FormControlLabel
-                                value="4"
-                                control={<Radio color="primary" checked={this.props.reduxState.feeling === "4"}/>}
-                                label="4"
-                                labelPlacement="bottom"
-                            />
-                            <FormControlLabel
-                                value="5"
-                                control={<Radio color="primary" checked={this.props.reduxState.feeling === "5"}/>}
-                                label="5"
-                                labelPlacement="bottom"
-                            />
+            <Card id="mainCard" elevation={3}>
+                <CardContent>
+                    <Grid container justify="center">
+                        <h3>How are you feeling today?</h3>
+                        <FormControl component="fieldset">
+                            <RadioGroup aria-label="position" name="feeling" value="feeling" onChange={this.handleChange} row className="radioGroup">
+                                <FormControlLabel
+                                    value="1"
+                                    control={<Radio color="primary" checked={this.props.reduxState.feeling === "1"} />}
+                                    label="1"
+                                    labelPlacement="bottom"
+                                />
+                                <FormControlLabel
+                                    value="2"
+                                    control={<Radio color="primary" checked={this.props.reduxState.feeling === "2"} />}
+                                    label="2"
+                                    labelPlacement="bottom"
+                                />
+                                <FormControlLabel
+                                    value="3"
+                                    control={<Radio color="primary" checked={this.props.reduxState.feeling === "3"} />}
+                                    label="3"
+                                    labelPlacement="bottom"
+                                />
+                                <FormControlLabel
+                                    value="4"
+                                    control={<Radio color="primary" checked={this.props.reduxState.feeling === "4"} />}
+                                    label="4"
+                                    labelPlacement="bottom"
+                                />
+                                <FormControlLabel
+                                    value="5"
+                                    control={<Radio color="primary" checked={this.props.reduxState.feeling === "5"} />}
+                                    label="5"
+                                    labelPlacement="bottom"
+                                />
 
-                        </RadioGroup>
-                    </FormControl>
-                </Grid>
-                {/* <form>
+                            </RadioGroup>
+                        </FormControl>
+                    </Grid>
+                    {/* <form>
                     <h3>How are you feeling today?</h3>
                     <input type="radio"
                         onChange={this.handleChange}
@@ -93,12 +95,13 @@ class Feeling extends Component {
                         checked={this.props.reduxState.feeling === "5"}
                     />
                 </form> */}
-                {this.props.reduxState.feeling !== '' ?
-                    <Button variant="contained" color="primary" onClick={() => { this.props.history.push('/understanding') }}>Next</Button>
-                    :
-                    <Button variant="contained" color="primary" disabled onClick={() => { this.props.history.push('/understanding') }}>Next</Button>
-                }
-            </CardContent>
+                    {this.props.reduxState.feeling !== '' ?
+                        <Button variant="contained" color="primary" onClick={() => { this.props.history.push('/understanding') }}>Next</Button>
+                        :
+                        <Button variant="contained" color="primary" disabled onClick={() => { this.props.history.push('/understanding') }}>Next</Button>
+                    }
+                </CardContent>
+            </Card>
         )
     }
 }

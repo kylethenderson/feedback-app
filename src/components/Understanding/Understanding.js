@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Grid from '@material-ui/core/Grid'
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -13,53 +14,54 @@ class Understanding extends Component {
     handleChange = (event) => {
         this.props.dispatch({
             type: 'SET_FEEDBACK',
-            payload: {understanding: event.target.value}
+            payload: { understanding: event.target.value }
         })
     }
 
     render() {
         return (
-            <CardContent>
-                <Grid container justify="center">
-                <h3>How is your understanding of the material?</h3>
-                    <FormControl component="fieldset">
-                        <RadioGroup aria-label="position" name="feeling" value="feeling" onChange={this.handleChange} row className="radioGroup">
-                            <FormControlLabel
-                                value="1"
-                                control={<Radio color="primary" checked={this.props.reduxState.understanding === "1"}/>}
-                                label="1"
-                                labelPlacement="bottom"
-                            />
-                            <FormControlLabel
-                                value="2"
-                                control={<Radio color="primary" checked={this.props.reduxState.understanding === "2"}/>}
-                                label="2"
-                                labelPlacement="bottom"
-                            />
-                            <FormControlLabel
-                                value="3"
-                                control={<Radio color="primary" checked={this.props.reduxState.understanding === "3"}/>}
-                                label="3"
-                                labelPlacement="bottom"
-                            />
-                            <FormControlLabel
-                                value="4"
-                                control={<Radio color="primary" checked={this.props.reduxState.understanding === "4"}/>}
-                                label="4"
-                                labelPlacement="bottom"
-                            />
-                            <FormControlLabel
-                                value="5"
-                                control={<Radio color="primary" checked={this.props.reduxState.understanding === "5"}/>}
-                                label="5"
-                                labelPlacement="bottom"
-                            />
+            <Card id="mainCard" elevation={3}>
+                <CardContent>
+                    <Grid container justify="center">
+                        <h3>How is your understanding of the material?</h3>
+                        <FormControl component="fieldset">
+                            <RadioGroup aria-label="position" name="feeling" value="feeling" onChange={this.handleChange} row className="radioGroup">
+                                <FormControlLabel
+                                    value="1"
+                                    control={<Radio color="primary" checked={this.props.reduxState.understanding === "1"} />}
+                                    label="1"
+                                    labelPlacement="bottom"
+                                />
+                                <FormControlLabel
+                                    value="2"
+                                    control={<Radio color="primary" checked={this.props.reduxState.understanding === "2"} />}
+                                    label="2"
+                                    labelPlacement="bottom"
+                                />
+                                <FormControlLabel
+                                    value="3"
+                                    control={<Radio color="primary" checked={this.props.reduxState.understanding === "3"} />}
+                                    label="3"
+                                    labelPlacement="bottom"
+                                />
+                                <FormControlLabel
+                                    value="4"
+                                    control={<Radio color="primary" checked={this.props.reduxState.understanding === "4"} />}
+                                    label="4"
+                                    labelPlacement="bottom"
+                                />
+                                <FormControlLabel
+                                    value="5"
+                                    control={<Radio color="primary" checked={this.props.reduxState.understanding === "5"} />}
+                                    label="5"
+                                    labelPlacement="bottom"
+                                />
 
-                        </RadioGroup>
-                    </FormControl>
-                </Grid>
-                
-                {/* <div>
+                            </RadioGroup>
+                        </FormControl>
+                    </Grid>
+
+                    {/* <div>
                     <h3>How is you understanding of the material?</h3>
                     <input type="radio"
                         onChange={this.handleChange}
@@ -93,13 +95,14 @@ class Understanding extends Component {
                         checked={this.props.reduxState.understanding === "5"}
                     />
                 </div> */}
-                <Button variant="contained" color="secondary" onClick={()=> {this.props.history.push('/feeling')}}>Back</Button>
-                {this.props.reduxState.understanding !== '' ? 
-                <Button variant="contained" color="primary" onClick={()=> {this.props.history.push('/support')}}>Next</Button>
-                :
-                <Button variant="contained" color="primary" disabled onClick={()=> {this.props.history.push('/support')}}>Next</Button>
-                }
-            </CardContent>
+                    <Button variant="contained" color="secondary" onClick={() => { this.props.history.push('/feeling') }}>Back</Button>
+                    {this.props.reduxState.understanding !== '' ?
+                        <Button variant="contained" color="primary" onClick={() => { this.props.history.push('/support') }}>Next</Button>
+                        :
+                        <Button variant="contained" color="primary" disabled onClick={() => { this.props.history.push('/support') }}>Next</Button>
+                    }
+                </CardContent>
+            </Card>
         )
     }
 }
