@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import Button from '@material-ui/core/Button'
 
 class Comments extends Component {
 
@@ -30,7 +31,7 @@ class Comments extends Component {
                     <p>Understanding: {this.props.reduxState.understanding}</p>
                     <p>Comments: {this.props.reduxState.comments}</p>
                 </div>
-                <button onClick={this.handleSubmit}>Submit Feedback</button>
+                <Button variant="contained" color="primary" onClick={this.handleSubmit}>Submit Feedback</Button>
             </>
         )
     }

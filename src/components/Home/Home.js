@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Button from '@material-ui/core/Button'
 
 class Home extends Component {
     render () {
         return (
             <>
-            <h3>Start New Feedback</h3>
-            <button onClick={()=> {this.props.history.push('/feeling')}}>Start Feedback</button>
+            <h2>New Feedback</h2>
+            <Button variant="contained" color="primary" onClick={()=> {this.props.history.push('/feeling')}}>Start</Button>
             </>
         )
     }

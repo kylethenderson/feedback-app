@@ -4,9 +4,7 @@ class Header extends Component {
     render() {
         return (
             <header className="App-header">
-                <h1 className="App-title">Feedback!</h1>
-                <h4><i>Don't forget it!</i></h4>
-                <button onClick={() => { this.props.history.push('/') }}>Home</button>
+                <h1 className="App-title">Prime Academy Feedback Form</h1>
             </header>
         )
     }

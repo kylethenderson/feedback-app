@@ -6,6 +6,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl'
+import Button from '@material-ui/core/Button'
 
 class Feeling extends Component {
 
@@ -22,6 +23,7 @@ class Feeling extends Component {
         return (
             <CardContent>
                 <Grid container justify="center">
+                <h3>How are you feeling today?</h3>
                     <FormControl component="fieldset">
                         <RadioGroup aria-label="position" name="feeling" value="feeling" onChange={this.handleChange} row className="radioGroup">
                             <FormControlLabel
@@ -92,9 +94,9 @@ class Feeling extends Component {
                     />
                 </form> */}
                 {this.props.reduxState.feeling !== '' ?
-                    <button onClick={() => { this.props.history.push('/understanding') }}>Next</button>
+                    <Button variant="contained" color="primary" onClick={() => { this.props.history.push('/understanding') }}>Next</Button>
                     :
-                    <button disabled onClick={() => { this.props.history.push('/understanding') }}>Next</button>
+                    <Button variant="contained" color="primary" disabled onClick={() => { this.props.history.push('/understanding') }}>Next</Button>
                 }
             </CardContent>
         )
