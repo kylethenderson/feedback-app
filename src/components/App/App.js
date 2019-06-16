@@ -34,10 +34,10 @@ class App extends Component {
                 <Route exact path="/comments" component={Comments} />
                 <Route exact path="/review" component={Review} />
                 <Route exact path="/success" component={Success} />
-              </Grid>
-              <Grid item xs={10}>
                 <Route exact path="/login" component={Login} />
-                <Route exact path="/admin" component={this.props.reduxState.testLogin ? Admin : Login} />
+              </Grid>
+              <Grid item xs={10} container justify="center">
+                <Route exact path="/admin" component={Admin} />
               </Grid>
             </Grid>
             <br />

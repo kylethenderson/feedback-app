@@ -59,9 +59,9 @@ class Login extends Component {
                     </Grid>
                     <Grid container justify="center" alignItems="center">
                         <Grid item xs={10}>
-                            {this.props.reduxState.loginCredentials.username !== '' && this.props.reduxState.loginCredentials.password !== '' ? 
+                            {this.props.reduxState.loginCredentials.username !== '' && this.props.reduxState.loginCredentials.password !== '' ?
                                 <Button variant="outlined" color="primary" size="large" onClick={this.handleLogin}>Log In</Button>
-                            :
+                                :
                                 <Button disabled variant="outlined" color="primary" size="large" onClick={this.handleLogin}>Log In</Button>
                             }
                         </Grid>

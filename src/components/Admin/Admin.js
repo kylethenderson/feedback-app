@@ -7,6 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { Redirect } from 'react-router-dom'
 
 //Components
 import AdminTableItem from './AdminTableItem'
@@ -26,12 +27,12 @@ class Admin extends Component {
             this.props.dispatch({
                 type: 'CLEAR_FEEDBACK',
             })
-            for ( let singleFeedback of response.data ) {
+            for (let singleFeedback of response.data) {
                 const formattedDate = this.formatDate(singleFeedback.date);
                 this.props.dispatch({
                     type: 'GET_FEEDBACK',
                     // payload: response.data,
-                    payload: {...singleFeedback, date: formattedDate},
+                    payload: { ...singleFeedback, date: formattedDate },
                 })
             }
         }).catch(error => {
@@ -46,34 +47,38 @@ class Admin extends Component {
     }
 
     render() {
-        return (
-            <>
-                {/* {JSON.stringify(this.props.reduxState, null, 2)} */}
-                <Paper>
-                    <Table id="adminTable">
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>Date</TableCell>
-                                <TableCell>Feeling</TableCell>
-                                <TableCell>Comprehension</TableCell>
-                                <TableCell>Support</TableCell>
-                                <TableCell>Notes</TableCell>
-                                <TableCell>Needs Review</TableCell>
-                                <TableCell>Delete</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {this.props.reduxState.map(item => <AdminTableItem key={item.id} item={item} refreshData={this.getFeedback} />)}
-                        </TableBody>
-                    </Table>
-                </Paper>
-            </>
-        )
+        if (!this.props.reduxState.testLogin) {
+            return <Redirect to='/login' />;
+        } else {
+            return (
+                <>
+                    {/* {JSON.stringify(this.props.reduxState, null, 2)} */}
+                    <Paper>
+                        <Table id="adminTable">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Date</TableCell>
+                                    <TableCell>Feeling</TableCell>
+                                    <TableCell>Comprehension</TableCell>
+                                    <TableCell>Support</TableCell>
+                                    <TableCell>Notes</TableCell>
+                                    <TableCell>Needs Review</TableCell>
+                                    <TableCell>Delete</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {this.props.reduxState.getFeedback.map(item => <AdminTableItem key={item.id} item={item} refreshData={this.getFeedback} />)}
+                            </TableBody>
+                        </Table>
+                    </Paper>
+                </>
+            )
+        }
     }
 }
 
 const mapReduxStateToProps = (reduxState) => ({
-    reduxState: reduxState.getFeedback,
+    reduxState: reduxState,
 })
 
 export default connect(mapReduxStateToProps)(Admin)
