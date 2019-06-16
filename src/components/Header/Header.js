@@ -19,16 +19,32 @@ class Header extends Component {
                     <header className="App-header">
                         <h1 className="App-title">Prime Academy Feedback Form</h1>
                         {this.props.history.location.pathname === '/admin' ?
-                            <Button id="loginButton" variant="contained" onClick={this.handleLogout}>Logout</Button>
+                            <>
+                                <Button size="small" id="homeButton" variant="contained" onClick={() => { this.props.history.push('/') }}>Home</Button>
+                                <Button size="small" id="loginButton" variant="contained" onClick={this.handleLogout}>Logout</Button>
+                            </>
                             :
-
-                            <Button id="loginButton" variant="contained" onClick={() => { this.props.history.push('/admin') }}>Admin</Button>
+                            <>
+                                <Button size="small" id="homeButton" variant="contained" onClick={() => { this.props.history.push('/') }}>Home</Button>
+                                <Button size="small" id="loginButton" variant="contained" onClick={() => { this.props.history.push('/admin') }}>Admin</Button>
+                            </>
                         }
                     </header>
                     :
                     <header className="App-header">
                         <h1 className="App-title">Prime Academy Feedback Form</h1>
-                        <Button id="loginButton" variant="contained" onClick={() => { this.props.history.push('/login') }}>Login</Button>
+                        {this.props.history.location.pathname === '/login' ?
+                            <>
+                                <Button size="small" id="homeButton" variant="contained" onClick={() => { this.props.history.push('/') }}>Home</Button>
+                                <Button size="small" disabled id="loginButton" variant="contained" onClick={() => { this.props.history.push('/login') }}>Login</Button>
+                            </>
+                            :
+                            <>
+                                <Button size="small" id="homeButton" variant="contained" onClick={() => { this.props.history.push('/') }}>Home</Button>
+                                <Button size="small" id="loginButton" variant="contained" onClick={() => { this.props.history.push('/login') }}>Login</Button>
+                            </>
+                        }
+
                     </header>
                 }
             </>

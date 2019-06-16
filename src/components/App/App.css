@@ -19,7 +19,12 @@
 #loginButton {
   position: absolute;
   right: 20px;
-  top: 45px;
+  top: 25px;
+}
+#homeButton {
+  position: absolute;
+  right: 20px;
+  top: 75px;
 }
 .login-input {
   width: 50%;
@@ -43,13 +48,18 @@
 }
 #mainCard button {
   margin: 25px 10px 0px 10px;
+  letter-spacing: 2px;
 }
 #mainCard textarea {
   font-size: 14px;
   letter-spacing: 1px;
   padding: 5px;
 }
-
+#loginAsterisk {
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-top: 25px;
+}
 footer {
   position: absolute;
   bottom: 0;

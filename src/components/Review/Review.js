@@ -36,10 +36,10 @@ class Comments extends Component {
                     </Grid>
                 </Grid>
                 <Grid container alignItems="center">
-                    <Grid item className="reviewTitle" xs={2}>
+                    <Grid item className="reviewTitle" xs={3}>
                         <p>Feelings:</p>
                     </Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={8} align="left">
                         <p>{this.props.reduxState.feeling}</p>
                     </Grid>
                     <Grid item xs={1}>
@@ -47,10 +47,10 @@ class Comments extends Component {
                     </Grid>
                 </Grid>
                 <Grid container alignItems="center">
-                    <Grid item className="reviewTitle" xs={2}>
+                    <Grid item className="reviewTitle" xs={3}>
                         <p>Support:</p>
                     </Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={8} align="left">
                         <p>{this.props.reduxState.support}</p>
                     </Grid>
                     <Grid item xs={1}>
@@ -58,10 +58,10 @@ class Comments extends Component {
                     </Grid>
                 </Grid>
                 <Grid container alignItems="center">
-                    <Grid item className="reviewTitle" xs={2}>
+                    <Grid item className="reviewTitle" xs={3}>
                         <p>Understanding:</p>
                     </Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={8} align="left">
                         <p>{this.props.reduxState.understanding}</p>
                     </Grid>
                     <Grid item xs={1}>
@@ -69,10 +69,10 @@ class Comments extends Component {
                     </Grid>
                 </Grid>
                 <Grid container alignItems="center">
-                    <Grid item className="reviewTitle" xs={2}>
+                    <Grid item className="reviewTitle" xs={3}>
                         <p>Comments:</p>
                     </Grid>
-                    <Grid item xs={9} id="commentContent">
+                    <Grid item xs={8} id="commentContent">
                         <p>{this.props.reduxState.comments}</p>
                     </Grid>
                     <Grid item xs={1}>

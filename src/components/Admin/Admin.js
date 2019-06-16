@@ -67,28 +67,6 @@ class Admin extends Component {
                         </TableBody>
                     </Table>
                 </Paper>
-                {/* 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Feeling</th>
-                            <th>Comprehension</th>
-                            <th>Support</th>
-                            <th>Notes</th>
-                            <th>Needs Review</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.props.reduxState.map(item => <AdminTableItem key={item.id} item={item} refreshData={this.getFeedback} />)}
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colSpan="7"></td>
-                        </tr>
-                    </tfoot>
-                </table> */}
             </>
         )
     }
