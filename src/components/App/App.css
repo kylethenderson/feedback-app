@@ -16,10 +16,13 @@
 .App-intro {
   font-size: large;
 }
-#homeButton {
+#loginButton {
   position: absolute;
   right: 20px;
   top: 45px;
+}
+.login-input {
+  width: 75%;
 }
 #mainCard {
   margin: 50px 0px;

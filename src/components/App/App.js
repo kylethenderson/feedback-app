@@ -14,6 +14,7 @@ import Comments from '../Comments/Comments'
 import Review from '../Review/Review'
 import Success from '../Success/Success'
 import Admin from '../Admin/Admin'
+import Login from '../Login/Login'
 import Footer from '../Footer/Footer'
 
 class App extends Component {
@@ -23,7 +24,6 @@ class App extends Component {
         <Router>
           <div className="App">
             <Route path="/" component={Header} />
-            {JSON.stringify(this.props, null, 2)}
             <Grid container alignItems="center" justify="center">
               <Grid item xs={6}>
                   <Route exact path="/" component={Home} />
@@ -33,9 +33,10 @@ class App extends Component {
                   <Route exact path="/comments" component={Comments} />
                   <Route exact path="/review" component={Review} />
                   <Route exact path="/success" component={Success} />
+                  <Route exact path="/login" component={Login} />
               </Grid>
               <Grid item xs={10}>
-                <Route exact path="/admin" component={Admin} />
+                <Route exact path="/admin" component={this.props.reduxState.testLogin ? Admin : Login} />
               </Grid>
             </Grid>
             <br />

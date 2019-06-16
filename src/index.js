@@ -26,9 +26,22 @@ const getFeedback = (state = [], action) => {
         return [];
     }
     else if ( action.type === 'GET_FEEDBACK') {
-        console.log(`inside get feedback`, action.payload);
         return [...state, action.payload]
     } 
+    return state
+}
+
+const testLogin = (state = false, action ) => {
+    if ( action.type === 'LOGIN') {
+        return action.payload
+    }
+    return state
+}
+
+const loginCredentials = (state = { username: '', password: ''}, action ) => {
+    if ( action.type === 'CREDENTIALS') {
+        return action.payload
+    }
     return state
 }
 
@@ -36,6 +49,8 @@ const storeInstance = createStore(
     combineReducers({
         setFeedback,
         getFeedback,
+        testLogin,
+        loginCredentials,
     }),
 )
 
