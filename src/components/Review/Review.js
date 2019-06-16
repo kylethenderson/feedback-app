@@ -26,6 +26,7 @@ class Comments extends Component {
             console.log(error);
         })
     }
+
     render() {
         return (
             <Card id="mainCard" elevation={3}>
