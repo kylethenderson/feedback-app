@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
-import Icon from '@material-ui/core/Icon'
+// import Icon from '@material-ui/core/Icon'
 import Grid from '@material-ui/core/Grid'
-
+import GridItem from './ReviewGridItem'
 import './Review.css'
 
 class Comments extends Component {
@@ -17,7 +17,6 @@ class Comments extends Component {
             url: '/feedback',
             data: this.props.reduxState
         }).then(response => {
-            console.log(response);
             this.props.dispatch({
                 type: 'CLEAR_FEEDBACK',
             })
@@ -35,50 +34,10 @@ class Comments extends Component {
                         <h3>Feedback Review</h3>
                     </Grid>
                 </Grid>
-                <Grid container alignItems="center">
-                    <Grid item className="reviewTitle" xs={3}>
-                        <p>Feelings:</p>
-                    </Grid>
-                    <Grid item xs={8} align="left">
-                        <p>{this.props.reduxState.feeling}</p>
-                    </Grid>
-                    <Grid item xs={1}>
-                        <Icon fontSize="small" onClick={() => { this.props.history.push('/feeling') }} className="icon">edit</Icon>
-                    </Grid>
-                </Grid>
-                <Grid container alignItems="center">
-                    <Grid item className="reviewTitle" xs={3}>
-                        <p>Support:</p>
-                    </Grid>
-                    <Grid item xs={8} align="left">
-                        <p>{this.props.reduxState.support}</p>
-                    </Grid>
-                    <Grid item xs={1}>
-                        <Icon fontSize="small" onClick={() => { this.props.history.push('/support') }} className="icon">edit</Icon>
-                    </Grid>
-                </Grid>
-                <Grid container alignItems="center">
-                    <Grid item className="reviewTitle" xs={3}>
-                        <p>Understanding:</p>
-                    </Grid>
-                    <Grid item xs={8} align="left">
-                        <p>{this.props.reduxState.understanding}</p>
-                    </Grid>
-                    <Grid item xs={1}>
-                        <Icon fontSize="small" onClick={() => { this.props.history.push('/understanding') }} className="icon">edit</Icon>
-                    </Grid>
-                </Grid>
-                <Grid container alignItems="center">
-                    <Grid item className="reviewTitle" xs={3}>
-                        <p>Comments:</p>
-                    </Grid>
-                    <Grid item xs={8} id="commentContent">
-                        <p>{this.props.reduxState.comments}</p>
-                    </Grid>
-                    <Grid item xs={1}>
-                        <Icon fontSize="small" onClick={() => { this.props.history.push('/comments') }} className="icon">edit</Icon>
-                    </Grid>
-                </Grid>
+                <GridItem feedback={'feeling'} value={this.props.reduxState.feeling} />
+                <GridItem feedback={'support'} value={this.props.reduxState.support} />
+                <GridItem feedback={'understanding'} value={this.props.reduxState.understanding} />
+                <GridItem feedback={'comments'} value={this.props.reduxState.comments} />
                 <Grid container alignItems="center">
                     <Grid item xs={12}>
                         <Button variant="contained" color="primary" onClick={this.handleSubmit}>Submit Feedback</Button>

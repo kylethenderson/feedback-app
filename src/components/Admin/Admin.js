@@ -47,9 +47,12 @@ class Admin extends Component {
     }
 
     render() {
+        // if login is false, redirect to the login page. 
         if (!this.props.reduxState.testLogin) {
             return <Redirect to='/login' />;
-        } else {
+        }   
+        // otherwise, return the admin component 
+        else {
             return (
                 <>
                     {/* {JSON.stringify(this.props.reduxState, null, 2)} */}

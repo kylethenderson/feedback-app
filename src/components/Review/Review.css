@@ -2,6 +2,9 @@
     padding-left: 25px;
     text-align: left;
 }
+.reviewTitle p {
+    text-transform: capitalize;
+}
 #commentContent {
     /* padding-left: 35px; */
     text-align: justify;
