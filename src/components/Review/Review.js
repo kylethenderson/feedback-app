@@ -78,7 +78,7 @@ class Comments extends Component {
                         <Icon fontSize="small" onClick={() => { this.props.history.push('/comments') }} className="icon">edit</Icon>
                     </Grid>
                 </Grid>
-                <Grid container>
+                <Grid container alignItems="center">
                     <Grid item xs={12}>
                         <Button variant="contained" color="primary" onClick={this.handleSubmit}>Submit Feedback</Button>
                     </Grid>
