@@ -50,30 +50,36 @@ class Admin extends Component {
         // if login is false, redirect to the login page. 
         if (!this.props.reduxState.testLogin) {
             return <Redirect to='/login' />;
-        }   
+        }
         // otherwise, return the admin component 
         else {
             return (
                 <>
+                    {this.props.reduxState.getFeedback.length > 0 ?
+                        <>
+                            <Paper id="adminTable">
+                                <Table>
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell>Date</TableCell>
+                                            <TableCell>Feeling</TableCell>
+                                            <TableCell>Comprehension</TableCell>
+                                            <TableCell>Support</TableCell>
+                                            <TableCell>Notes</TableCell>
+                                            <TableCell>Needs Review</TableCell>
+                                            <TableCell>Delete</TableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
+                                        {this.props.reduxState.getFeedback.map(item => <AdminTableItem key={item.id} item={item} refreshData={this.getFeedback} />)}
+                                    </TableBody>
+                                </Table>
+                            </Paper>
+                        </>
+                        :
+                        <h3 id="adminError">No feedback to review at this time</h3>
+                    }
                     {/* {JSON.stringify(this.props.reduxState, null, 2)} */}
-                    <Paper>
-                        <Table id="adminTable">
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell>Date</TableCell>
-                                    <TableCell>Feeling</TableCell>
-                                    <TableCell>Comprehension</TableCell>
-                                    <TableCell>Support</TableCell>
-                                    <TableCell>Notes</TableCell>
-                                    <TableCell>Needs Review</TableCell>
-                                    <TableCell>Delete</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {this.props.reduxState.getFeedback.map(item => <AdminTableItem key={item.id} item={item} refreshData={this.getFeedback} />)}
-                            </TableBody>
-                        </Table>
-                    </Paper>
                 </>
             )
         }

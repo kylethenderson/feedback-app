@@ -13,7 +13,7 @@ class Login extends Component {
                 type: 'LOGIN',
                 payload: true
             })
-            this.props.history.push('/')
+            this.props.history.push('/admin')
         } else {
             alert('Please enter Username and Password');
         }
