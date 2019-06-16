@@ -8,7 +8,7 @@ class Home extends Component {
         return (
             <Card id="mainCard" elevation={3}>
                 <h2>Ready to leave some feedback?</h2>
-                <Button variant="contained" color="primary" onClick={() => { this.props.history.push('/feeling') }}>Start</Button>
+                <Button size="large" variant="contained" color="primary" onClick={() => { this.props.history.push('/feeling') }}>Let's Go!</Button>
             </Card>
         )
     }

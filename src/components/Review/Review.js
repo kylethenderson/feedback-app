@@ -39,10 +39,10 @@ class Comments extends Component {
                     <Grid item className="reviewTitle" xs={2}>
                         <p>Feelings:</p>
                     </Grid>
-                    <Grid item xs={8}>
+                    <Grid item xs={9}>
                         <p>{this.props.reduxState.feeling}</p>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={1}>
                         <Icon fontSize="small" onClick={() => { this.props.history.push('/feeling') }} className="icon">edit</Icon>
                     </Grid>
                 </Grid>
@@ -50,10 +50,10 @@ class Comments extends Component {
                     <Grid item className="reviewTitle" xs={2}>
                         <p>Support:</p>
                     </Grid>
-                    <Grid item xs={8}>
+                    <Grid item xs={9}>
                         <p>{this.props.reduxState.support}</p>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={1}>
                         <Icon fontSize="small" onClick={() => { this.props.history.push('/support') }} className="icon">edit</Icon>
                     </Grid>
                 </Grid>
@@ -61,10 +61,10 @@ class Comments extends Component {
                     <Grid item className="reviewTitle" xs={2}>
                         <p>Understanding:</p>
                     </Grid>
-                    <Grid item xs={8}>
+                    <Grid item xs={9}>
                         <p>{this.props.reduxState.understanding}</p>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={1}>
                         <Icon fontSize="small" onClick={() => { this.props.history.push('/understanding') }} className="icon">edit</Icon>
                     </Grid>
                 </Grid>
@@ -72,10 +72,10 @@ class Comments extends Component {
                     <Grid item className="reviewTitle" xs={2}>
                         <p>Comments:</p>
                     </Grid>
-                    <Grid item xs={8}>
+                    <Grid item xs={9} id="commentContent">
                         <p>{this.props.reduxState.comments}</p>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={1}>
                         <Icon fontSize="small" onClick={() => { this.props.history.push('/comments') }} className="icon">edit</Icon>
                     </Grid>
                 </Grid>

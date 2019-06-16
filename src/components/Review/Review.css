@@ -2,3 +2,7 @@
     padding-left: 25px;
     text-align: left;
 }
+#commentContent {
+    padding-left: 35px;
+    text-align: justify;
+}
