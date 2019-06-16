@@ -14,21 +14,22 @@ class Header extends Component {
     render() {
         return (
             <>
-            {/* {JSON.stringify(this.props, null, 2)} */}
-            {this.props.history.location.pathname !== '/admin' ?
-            <header className="App-header">
-                <h1 className="App-title">Prime Academy Feedback Form</h1>
-                {this.props.reduxState ? 
-                    <Button id="loginButton" variant="contained" onClick={() => {this.props.history.push('/admin')}}>Admin</Button>
-                :
-                    <Button id="loginButton" variant="contained" onClick={() => {this.props.history.push('/login')}}>Login</Button>
-                }
-            </header>
-                :
-            <header className="App-header">
-                <h1 className="App-title">Prime Academy Admin View</h1>
-                <Button id="loginButton" variant="contained" onClick={this.handleLogout}>Logout</Button>
-            </header>
+                {/* {JSON.stringify(this.props, null, 2)} */}
+                {this.props.reduxState ?
+                    <header className="App-header">
+                        <h1 className="App-title">Prime Academy Feedback Form</h1>
+                        {this.props.history.location.pathname === '/admin' ?
+                            <Button id="loginButton" variant="contained" onClick={this.handleLogout}>Logout</Button>
+                            :
+
+                            <Button id="loginButton" variant="contained" onClick={() => { this.props.history.push('/admin') }}>Admin</Button>
+                        }
+                    </header>
+                    :
+                    <header className="App-header">
+                        <h1 className="App-title">Prime Academy Feedback Form</h1>
+                        <Button id="loginButton" variant="contained" onClick={() => { this.props.history.push('/login') }}>Login</Button>
+                    </header>
                 }
             </>
         )

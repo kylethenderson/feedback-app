@@ -25,17 +25,18 @@ class App extends Component {
           <div className="App">
             <Route path="/" component={Header} />
             <Grid container alignItems="center" justify="center">
+              {/* {JSON.stringify(this.props.reduxState, null, 2)} */}
               <Grid item xs={6}>
-                  <Route exact path="/" component={Home} />
-                  <Route exact path="/feeling" component={Feeling} />
-                  <Route exact path="/understanding" component={Understanding} />
-                  <Route exact path="/support" component={Support} />
-                  <Route exact path="/comments" component={Comments} />
-                  <Route exact path="/review" component={Review} />
-                  <Route exact path="/success" component={Success} />
-                  <Route exact path="/login" component={Login} />
+                <Route exact path="/" component={Home} />
+                <Route exact path="/feeling" component={Feeling} />
+                <Route exact path="/understanding" component={Understanding} />
+                <Route exact path="/support" component={Support} />
+                <Route exact path="/comments" component={Comments} />
+                <Route exact path="/review" component={Review} />
+                <Route exact path="/success" component={Success} />
               </Grid>
               <Grid item xs={10}>
+                <Route exact path="/login" component={Login} />
                 <Route exact path="/admin" component={this.props.reduxState.testLogin ? Admin : Login} />
               </Grid>
             </Grid>
