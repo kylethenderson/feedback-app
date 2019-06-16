@@ -8,6 +8,7 @@ import Radio from '@material-ui/core/Radio'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl'
 import Button from '@material-ui/core/Button'
+import { Redirect } from 'react-router-dom'
 
 class Support extends Component {
 
@@ -18,91 +19,61 @@ class Support extends Component {
         })
     }
     render() {
-        return (
-            <Card id="mainCard" elevation={3}>
-                <CardContent>
-                    <Grid container justify="center">
-                        <h3>How supported are you feeling?</h3>
-                        <FormControl component="fieldset">
-                            <RadioGroup aria-label="position" name="feeling" value="feeling" onChange={this.handleChange} row className="radioGroup">
-                                <FormControlLabel
-                                    value="1"
-                                    control={<Radio color="primary" checked={this.props.reduxState.support === "1"} />}
-                                    label="1"
-                                    labelPlacement="bottom"
-                                />
-                                <FormControlLabel
-                                    value="2"
-                                    control={<Radio color="primary" checked={this.props.reduxState.support === "2"} />}
-                                    label="2"
-                                    labelPlacement="bottom"
-                                />
-                                <FormControlLabel
-                                    value="3"
-                                    control={<Radio color="primary" checked={this.props.reduxState.support === "3"} />}
-                                    label="3"
-                                    labelPlacement="bottom"
-                                />
-                                <FormControlLabel
-                                    value="4"
-                                    control={<Radio color="primary" checked={this.props.reduxState.support === "4"} />}
-                                    label="4"
-                                    labelPlacement="bottom"
-                                />
-                                <FormControlLabel
-                                    value="5"
-                                    control={<Radio color="primary" checked={this.props.reduxState.support === "5"} />}
-                                    label="5"
-                                    labelPlacement="bottom"
-                                />
+        if (this.props.reduxState.understanding === '') {
+            return <Redirect to='/understanding' />;
+        } else {
+            return (
+                <Card id="mainCard" elevation={3}>
+                    <CardContent>
+                        <Grid container justify="center">
+                            <h3>How supported are you feeling?</h3>
+                            <FormControl component="fieldset">
+                                <RadioGroup aria-label="position" name="feeling" value="feeling" onChange={this.handleChange} row className="radioGroup">
+                                    <FormControlLabel
+                                        value="1"
+                                        control={<Radio color="primary" checked={this.props.reduxState.support === "1"} />}
+                                        label="1"
+                                        labelPlacement="bottom"
+                                    />
+                                    <FormControlLabel
+                                        value="2"
+                                        control={<Radio color="primary" checked={this.props.reduxState.support === "2"} />}
+                                        label="2"
+                                        labelPlacement="bottom"
+                                    />
+                                    <FormControlLabel
+                                        value="3"
+                                        control={<Radio color="primary" checked={this.props.reduxState.support === "3"} />}
+                                        label="3"
+                                        labelPlacement="bottom"
+                                    />
+                                    <FormControlLabel
+                                        value="4"
+                                        control={<Radio color="primary" checked={this.props.reduxState.support === "4"} />}
+                                        label="4"
+                                        labelPlacement="bottom"
+                                    />
+                                    <FormControlLabel
+                                        value="5"
+                                        control={<Radio color="primary" checked={this.props.reduxState.support === "5"} />}
+                                        label="5"
+                                        labelPlacement="bottom"
+                                    />
 
-                            </RadioGroup>
-                        </FormControl>
-                    </Grid>
-                    {/* <div>
-                    <h3>How supported are you feeling?</h3>
-                    <input type="radio"
-                        onChange={this.handleChange}
-                        value="1"
-                        name="support"
-                        checked={this.props.reduxState.support === "1"}
-                    />
-                    <input type="radio"
-                        onChange={this.handleChange}
-                        value="2"
-                        name="support"
-                        checked={this.props.reduxState.support === "2"}
-                    />
-                    <input type="radio"
-                        onChange={this.handleChange}
-                        value="3"
-                        name="support"
-                        checked={this.props.reduxState.support === "3"}
+                                </RadioGroup>
+                            </FormControl>
+                        </Grid> 
+                        <Button variant="contained" color="secondary" onClick={() => { this.props.history.push('/understanding') }}>Back</Button>
+                        {this.props.reduxState.support !== '' ?
+                            <Button variant="contained" color="primary" onClick={() => { this.props.history.push('/comments') }}>Next</Button>
+                            :
+                            <Button variant="contained" color="primary" disabled onClick={() => { this.props.history.push('/comments') }}>Next</Button>
+                        }
 
-                    />
-                    <input type="radio"
-                        onChange={this.handleChange}
-                        value="4"
-                        name="support"
-                        checked={this.props.reduxState.support === "4"}
-                    />
-                    <input type="radio"
-                        onChange={this.handleChange}
-                        value="5"
-                        name="support"
-                        checked={this.props.reduxState.support === "5"}
-                    />
-                </div> */}
-                    <Button variant="contained" color="secondary" onClick={() => { this.props.history.push('/understanding') }}>Back</Button>
-                    {this.props.reduxState.support !== '' ?
-                        <Button variant="contained" color="primary" onClick={() => { this.props.history.push('/comments') }}>Next</Button>
-                        :
-                        <Button variant="contained" color="primary" disabled onClick={() => { this.props.history.push('/comments') }}>Next</Button>
-                    }
-
-                </CardContent>
-            </Card>
-        )
+                    </CardContent>
+                </Card>
+            )
+        }
     }
 }
 
