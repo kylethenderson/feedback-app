@@ -23,7 +23,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Route path="/" component={Header} />
-            {/* {JSON.stringify(this.props, null, 2)} */}
+            {JSON.stringify(this.props, null, 2)}
             <Grid container alignItems="center" justify="center">
               <Grid item xs={6}>
                   <Route exact path="/" component={Home} />
