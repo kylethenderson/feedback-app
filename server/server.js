@@ -34,7 +34,6 @@ app.post('/feedback', (req, res) => {
 })
 
 app.put('/feedback', (req, res) => {
-    console.log(req.body.flagged, req.body.id);
     pool.query(`UPDATE "feedback" SET "flagged" = $1
     WHERE "id" = $2;`, [!req.body.flagged, req.body.id])
         .then( result => {
