@@ -21,7 +21,7 @@ class Understanding extends Component {
 
     render() {
         if (this.props.reduxState.feeling === '') {
-            return <Redirect to='/feeling' />
+            return <Redirect to='/' />
         }
         else {
             return (
