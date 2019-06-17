@@ -13,6 +13,7 @@ import Support from '../Support/Support'
 import Comments from '../Comments/Comments'
 import Review from '../Review/Review'
 import Success from '../Success/Success'
+import Display from '../Display/Display'
 import Admin from '../Admin/Admin'
 import Login from '../Login/Login'
 import Footer from '../Footer/Footer'
@@ -39,18 +40,14 @@ class App extends Component {
               <Grid item xs={10} container justify="center">
                 <Route exact path="/admin" component={Admin} />
               </Grid>
+              <Grid item xs={6} >
+                <Route path="/" component={Display} />
+              </Grid>
             </Grid>
             <br />
           </div>
         </Router>
         <Footer />
-        {/* <div>
-          <h3>Feedback Review</h3>
-          <p>Feelings: {this.props.reduxState.setFeedback.feeling}</p>
-          <p>Support: {this.props.reduxState.setFeedback.support}</p>
-          <p>Understanding: {this.props.reduxState.setFeedback.understanding}</p>
-          <p>Comments: {this.props.reduxState.setFeedback.comments}</p>
-        </div> */}
       </>
     );
   }

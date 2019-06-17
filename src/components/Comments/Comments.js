@@ -24,7 +24,7 @@ class Comments extends Component {
                             onChange={this.handleChange}
                             placeholder="Nah, I don't need to leave any comments."
                             value={this.props.reduxState.comments}
-                            rows="8" cols="70" />
+                            rows="5" cols="70" />
                     </div>
                     <Button variant="contained" color="secondary" onClick={() => { this.props.history.push('/support') }}>Back</Button>
                     <Button variant="contained" color="primary" onClick={() => { this.props.history.push('/review') }}>Review Feedback</Button>
