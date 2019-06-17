@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom'
 
 class Comments extends Component {
 
+    // on the change of the textarea, set the comments key/value pair in the redux store feedback object
     handleChange = (event) => {
         this.props.dispatch({
             type: 'SET_FEEDBACK',
@@ -13,6 +14,7 @@ class Comments extends Component {
         })
     }
     render() {
+        // if support in redux store is empty, redirect to the support page to complete
         if (this.props.reduxState.support === '') {
             return <Redirect to='/support' />
         } else {

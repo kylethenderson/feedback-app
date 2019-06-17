@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 class Header extends Component {
 
+    // set the testLogin state to false on logout button clicks
     handleLogout = () => {
         this.props.dispatch({
             type: 'LOGIN',
@@ -11,10 +12,10 @@ class Header extends Component {
         });
         this.props.history.push('/')
     }
+    // render the header with specific buttons based on the testLogin boolean, and which url the user is on
     render() {
         return (
             <>
-                {/* {JSON.stringify(this.props, null, 2)} */}
                 {this.props.reduxState ?
                     <header className="App-header">
                         <h1 className="App-title">Prime Academy Feedback Form</h1>

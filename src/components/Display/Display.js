@@ -1,3 +1,4 @@
+// import necessary bits from node modules
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Card from '@material-ui/core/Card'

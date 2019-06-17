@@ -1,3 +1,4 @@
+// import necessary bits from node modules
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './App.css';
@@ -26,7 +27,6 @@ class App extends Component {
           <div className="App">
             <Route path="/" component={Header} />
             <Grid container alignItems="center" justify="center">
-              {/* {JSON.stringify(this.props.reduxState, null, 2)} */}
               <Grid item xs={6}>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/feeling" component={Feeling} />

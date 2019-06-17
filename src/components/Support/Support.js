@@ -1,3 +1,4 @@
+// import all the necessary bits from node modules
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Card from '@material-ui/core/Card'
@@ -12,12 +13,14 @@ import { Redirect } from 'react-router-dom'
 
 class Support extends Component {
 
+    // when a user clicks any of the radio buttons, update the support key/value pair in the feedback object in redux
     handleChange = (event) => {
         this.props.dispatch({
             type: 'SET_FEEDBACK',
             payload: { support: event.target.value }
         })
     }
+    // if the understanding field in redux is empty, redirect to the understanding page to complete, otherwise render form
     render() {
         if (this.props.reduxState.understanding === '') {
             return <Redirect to='/understanding' />;

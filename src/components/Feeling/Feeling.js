@@ -1,3 +1,4 @@
+// import necessary bits from node modules
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Card from '@material-ui/core/Card'
@@ -11,6 +12,7 @@ import Button from '@material-ui/core/Button'
 
 class Feeling extends Component {
 
+    // when a user clicks any of the radio buttons, update the feeling key/value pair in the feedback object in redux
     handleChange = (event) => {
         this.props.dispatch({
             type: 'SET_FEEDBACK',
@@ -62,39 +64,6 @@ class Feeling extends Component {
                             </RadioGroup>
                         </FormControl>
                     </Grid>
-                    {/* <form>
-                    <h3>How are you feeling today?</h3>
-                    <input type="radio"
-                        onChange={this.handleChange}
-                        value="1"
-                        name="feeling"
-                        checked={this.props.reduxState.feeling === "1"}
-                    />
-                    <input type="radio"
-                        onChange={this.handleChange}
-                        value="2"
-                        name="feeling"
-                        checked={this.props.reduxState.feeling === "2"}
-                    />
-                    <input type="radio"
-                        onChange={this.handleChange}
-                        value="3"
-                        name="feeling"
-                        checked={this.props.reduxState.feeling === "3"}
-                    />
-                    <input type="radio"
-                        onChange={this.handleChange}
-                        value="4"
-                        name="feeling"
-                        checked={this.props.reduxState.feeling === "4"}
-                    />
-                    <input type="radio"
-                        onChange={this.handleChange}
-                        value="5"
-                        name="feeling"
-                        checked={this.props.reduxState.feeling === "5"}
-                    />
-                </form> */}
                     {this.props.reduxState.feeling !== '' ?
                         <Button variant="contained" color="primary" onClick={() => { this.props.history.push('/understanding') }}>Next</Button>
                         :

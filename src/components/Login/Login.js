@@ -7,18 +7,25 @@ import Button from '@material-ui/core/Button'
 
 class Login extends Component {
 
+    // on click of login, make sure credentials state in redux aren't empty, then set login to true and redirect to admin page
     handleLogin = () => {
         if (this.props.reduxState.loginCredentials.username !== '' && this.props.reduxState.loginCredentials.password !== '') {
             this.props.dispatch({
                 type: 'LOGIN',
                 payload: true
             })
+            // clear stored input once the "logged in" state is set to true
+            this.props.dispatch({
+                type: 'CLEAR_CREDENTIALS',
+            })
             this.props.history.push('/admin')
         } else {
+            // otherwise, alert the user to enter user and pass
             alert('Please enter Username and Password');
         }
     }
 
+    // set the credentials state in the redux store when user enters username or password
     handleChange = (event) => {
         this.props.dispatch({
             type: 'CREDENTIALS',
@@ -26,6 +33,7 @@ class Login extends Component {
         })
     }
 
+    // basic login form for user
     render() {
         return (
             <>

@@ -1,3 +1,4 @@
+//import all the necessary bits from node modules
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -10,6 +11,7 @@ import './Review.css'
 
 class Comments extends Component {
 
+    // on submit post data from redux store to db
     handleSubmit = () => {
         // post review to server
         axios({
@@ -17,6 +19,7 @@ class Comments extends Component {
             url: '/feedback',
             data: this.props.reduxState
         }).then(response => {
+            // then clear the single feedback and redirect to success page
             this.props.dispatch({
                 type: 'CLEAR_FEEDBACK',
             })

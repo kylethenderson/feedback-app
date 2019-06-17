@@ -1,3 +1,4 @@
+// import all necessary bits from node modules
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Card from '@material-ui/core/Card'
@@ -12,6 +13,7 @@ import { Redirect } from 'react-router-dom'
 
 class Understanding extends Component {
 
+    // when a user clicks any of the radio buttons, update the understanding key/value pair in the feedback object in redux
     handleChange = (event) => {
         this.props.dispatch({
             type: 'SET_FEEDBACK',
@@ -19,6 +21,7 @@ class Understanding extends Component {
         })
     }
 
+    // if feeling in the redux store is empty, redirect to the home, base route to start new feedback
     render() {
         if (this.props.reduxState.feeling === '') {
             return <Redirect to='/' />
