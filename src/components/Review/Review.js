@@ -41,10 +41,10 @@ class Comments extends Component {
                             <h3>Feedback Review</h3>
                         </Grid>
                     </Grid>
-                    <GridItem feedback={'feeling'} value={this.props.reduxState.feeling} />
-                    <GridItem feedback={'support'} value={this.props.reduxState.support} />
-                    <GridItem feedback={'understanding'} value={this.props.reduxState.understanding} />
-                    <GridItem feedback={'comments'} value={this.props.reduxState.comments} />
+                    <GridItem history={this.props.history} feedback={'feeling'} value={this.props.reduxState.feeling} />
+                    <GridItem history={this.props.history} feedback={'support'} value={this.props.reduxState.support} />
+                    <GridItem history={this.props.history} feedback={'understanding'} value={this.props.reduxState.understanding} />
+                    <GridItem history={this.props.history} feedback={'comments'} value={this.props.reduxState.comments} />
                     <Grid container alignItems="center">
                         <Grid item xs={12}>
                             <Button variant="contained" color="primary" onClick={this.handleSubmit}>Submit Feedback</Button>

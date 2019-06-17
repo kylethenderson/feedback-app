@@ -9,3 +9,9 @@
     /* padding-left: 35px; */
     text-align: justify;
 }
+.icon:hover {
+    cursor: pointer;
+    color: #b10021;
+    font-size: 28px;
+    transition: .25s;
+}

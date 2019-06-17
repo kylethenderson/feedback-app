@@ -3,6 +3,12 @@ import Grid from '@material-ui/core/Grid'
 import Icon from '@material-ui/core/Icon'
 
 class GridItem extends Component {
+
+    handleRedirect = () => {
+        this.props.history.push({
+            pathname: this.props.feedback,
+        });
+    }
     render() {
         return (
             <>
@@ -14,7 +20,7 @@ class GridItem extends Component {
                         <p>{this.props.value}</p>
                     </Grid>
                     <Grid item xs={1}>
-                        <Icon fontSize="small" onClick={() => { this.props.history.push(`/${this.props.feedback}`) }} className="icon">edit</Icon>
+                        <Icon fontSize="small" onClick={this.handleRedirect} className="icon">edit</Icon>
                     </Grid>
                 </Grid>
             </>
