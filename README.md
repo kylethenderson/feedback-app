@@ -2,7 +2,7 @@
 
 ### Description
 
-**Caesar Feedback Form** is a multi-part form that allows users to leave feedback for a day. 
+**Feedback Form** is a multi-part form that allows users to leave feedback for a day. 
 There will be 4 views for the form parts.
 The parts:
 - How are you feeling today?
